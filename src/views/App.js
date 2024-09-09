@@ -2,8 +2,8 @@ import logo from './logo.svg';
 import './App.scss';
 import Nav from './Nav/Nav'
 import Home from './Home';
-import Page1 from './Page-1';
-import Page2 from './Page-2';
+import Blog from './Blog/Blog';
+import DetailBlog from './Blog/DetailBlog';
 import { BrowserRouter, Switch, Route, Link } from "react-router-dom"; // Thêm từ thư viện React Router
 
 function App() {
@@ -17,8 +17,8 @@ function App() {
             {/* Các path liên kết với Nav.js */}
             <Switch>
                 <Route path= "/" exact> <Home /> </Route>
-                <Route path= "/page-1"> <Page1 /> </Route>
-                <Route path="/page-2"> <Page2 /> </Route>
+                <Route path = "/blog" exact> <Blog /> </Route>
+                <Route path = "/blog/:id"> <DetailBlog /> </Route> {/* :id đặt là gì cũng được */}
             </Switch>
         </header>
       </div>

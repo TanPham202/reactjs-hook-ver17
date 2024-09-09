@@ -8,8 +8,7 @@ const Nav = () => {
             {/* Các to của thẻ NavLink phải giống path bên App.js */}
             {/* exact=true là để xác định lúc đầu chọn tab nào */}
             <NavLink to="/" activeClassName="active" exact={true}> Home </NavLink>
-            <NavLink to="/page-1" activeClassName="active"> Page 1 </NavLink>
-            <NavLink to="/page-2" activeClassName="active"> Page 2 </NavLink>
+            <NavLink to ="/blog" activeClassName = "active"> Blog </NavLink>
         </div>
     );
 }
