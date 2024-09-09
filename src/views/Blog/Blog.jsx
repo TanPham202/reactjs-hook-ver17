@@ -1,6 +1,6 @@
 import useFetch from "./useFetch";
 import './Blog.scss';
-import { Link } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 
 const Blog = () => {
 
@@ -10,6 +10,11 @@ const Blog = () => {
     let newData = [];
     if (dataBlog && dataBlog.length > 0) {
         newData = dataBlog.slice(0, 9)
+    }
+
+    let history = useHistory();
+    const handleBackData = (setId) => {
+        history.push(`/blog/${setId.id}`); // Chuyển sang trang /blog/id của dữ liệu được chọn
     }
 
     return (
@@ -22,7 +27,7 @@ const Blog = () => {
                                 <div className="title"> {item.title} </div>
                                 <div className="content"> {item.body} </div>
                                 {/* Chuyển sang trang /blog/id của dữ liệu được chọn */}
-                                <button> <Link to={`/blog/${item.id}`} > View detail </Link> </button>
+                                <button onClick={() => handleBackData(item)}> View detail </button>
                             </div>
                         )
                     })}
