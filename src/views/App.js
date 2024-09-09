@@ -1,13 +1,13 @@
 import logo from './logo.svg';
 import './App.scss';
-import DemoConditionalLoadingMessage from './DemoConditionalLoadingMessage';
+import DemoCustomHook from './DemoCustomHook';
 
 function App() {
   return (
     <div className="App">
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
-        <DemoConditionalLoadingMessage />
+        <DemoCustomHook />
       </header>
     </div>
   );

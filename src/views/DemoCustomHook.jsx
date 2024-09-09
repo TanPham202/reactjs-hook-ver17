@@ -1,25 +1,10 @@
-import { useEffect, useState } from "react";
-import axios from "axios";
+import useFetch from './useFetch';
 
-const DemoConditionalLoadingMessage = () => {
-
-    const [dataLocal, setDataLocal] = useState([]);
-    const [loading, setLoading] = useState(true)
-
-    const getDataAPI = async() => {
-        // Dữ liệu từ API lấy về sẽ được hiển thị sau 3 giây
-        setTimeout(async () => {
-            let res = await axios.get('https://jsonplaceholder.typicode.com/todos/') // API lấy được gán vào biến res
-            let data = res && res.data ? res.data : []; // Nếu có dữ liệu thì gán vào biến data, không thì gán mảng rỗng
-            // Gán data vào biến state "dataLocal" trong State
-            setDataLocal(data)
-            setLoading(false);
-        },3000)
-    }
-
-    useEffect(() =>{
-        getDataAPI();
-    },[])
+const DemoCustomHook = () => {
+    // Sử dụng customHook
+    // Biến "dataLocal" và biến "loading" lấy từ trong state của useFetch
+    // Kết nối với useFetch
+    const {dataLocal, loading} = useFetch('https://jsonplaceholder.typicode.com/todos/')
 
     return (
         <>
@@ -32,7 +17,6 @@ const DemoConditionalLoadingMessage = () => {
                     </tr>
                 </thead>
                 <tbody>
-                    {/* Nếu state loading có giá trị là "false" và có dữ liệu thì sau 3 giây sẽ hiện ra, ngược lại hiện chữ Loading... */}
                     { loading === false && dataLocal && dataLocal.length > 0 ? 
                         <>
                             { dataLocal.map(item => {
@@ -55,4 +39,4 @@ const DemoConditionalLoadingMessage = () => {
     )
 }
 
-export default DemoConditionalLoadingMessage;
+export default DemoCustomHook;
