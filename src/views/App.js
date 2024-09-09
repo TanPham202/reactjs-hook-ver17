@@ -1,13 +1,13 @@
 import logo from './logo.svg';
 import './App.scss';
-import DemoStateUseState from './DemoStateUseState';
+import DemoProps from './DemoProps';
 
 function App() {
   return (
     <div className="App">
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
-        <DemoStateUseState />
+        <DemoProps />
       </header>
     </div>
   );
